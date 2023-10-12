@@ -1,0 +1,71 @@
+<div>
+  <div class="submit-form">
+    <form #cursoForm="ngForm">
+      <h4><b>Añadir nuevo curso</b></h4>
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          required
+          [(ngModel)]="curso.nombre"
+          name="nombre"
+        />
+        <div class="error-message" *ngIf="cursoForm.submitted && !curso.nombre">
+          El campo Nombre es obligatorio.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tema"><b>Tema</b></label>
+        <select class="form-control" [(ngModel)]="selectedTemaId" (ngModelChange)="retrieveMaterialesPorCurso()">
+          <option value="0">Selecciona un tema</option>
+          <option *ngFor="let tema of temas" [value]="tema.id">{{ tema.nombre }}</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="selectedTemaId">
+  		<label for="material">Materiales del tema</label>
+  		<ul>
+    	<li *ngFor="let materialT of materialesTema">
+      		<input type="radio" [value]="materialT.id" [(ngModel)]="selectedMaterialId" disabled>
+      		{{ materialT.titulo }}
+    	</li>
+  		</ul>
+	 </div>
+      
+      
+      
+      <div class="form-group">
+        <label for="fechaInicio"><b>Fecha inicio</b></label>
+        <input
+          class="form-control"
+          id="fechaInicio"
+          required
+          [(ngModel)]="curso.fechaInicio"
+          name="fechaInicio"
+        />
+        <div class="error-message" *ngIf="cursoForm.submitted && !curso.fechaInicio">
+          El campo Fecha inicio es obligatorio.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="docente"><b>Docente</b></label>
+        <select class="form-control" id="docente" required [(ngModel)]="curso.idDocente" name="docente">
+          <option value="0">Seleccione un docente</option>
+          <option value="1">Matias Gonzalez</option>
+          <option value="2">Ramon Perez</option>
+          <option value="3">Pepe Morales</option>
+        </select>
+        <div class="error-message" *ngIf="cursoForm.submitted && curso.idDocente === 0">
+          Por favor, seleccione un docente.
+        </div>
+      </div>
+      <button type="button" (click)="saveCurso()" class="btn btn-success">Guardar</button>
+    </form>
+    <div *ngIf="submitted">
+      <h4>El curso ha sido guardado con éxito!</h4>
+      <button class="btn btn-success" (click)="newCurso()">Agregar</button>
+    </div>
+  </div>
+</div>

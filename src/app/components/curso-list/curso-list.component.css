@@ -1,0 +1,11 @@
+.custom-list {
+  border: 2px solid #333; /* Borde de 2 píxeles sólido con color gris */
+  padding: 10px; /* Espacio interno de 10 píxeles */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.custom-btn-danger {
+  background-color: red; /* Color de fondo rojo */
+  border: none; /* Sin borde */
+  color: white; /* Texto en color blanco */
+}

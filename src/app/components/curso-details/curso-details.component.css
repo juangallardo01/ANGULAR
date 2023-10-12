@@ -1,0 +1,8 @@
+.box {
+  border: 2px solid #ccc; /* Borde de 2 píxeles sólido con color gris */
+  padding: 10px; /* Espacio interno de 10 píxeles */
+  margin: 10px; /* Espacio externo de 10 píxeles */
+  background-color:  #cbe2e9 ; 
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
