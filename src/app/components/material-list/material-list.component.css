@@ -1,0 +1,34 @@
+/* Estilo para la lista de materiales */
+.custom-list {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+}
+
+.custom-list li {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+
+.custom-list li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Estilo para el título "Listado Materiales" */
+h4 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* Estilo para elementos en negrita */
+b {
+  font-weight: bold;
+}

@@ -7,6 +7,7 @@ import { TemaListComponent } from './components/tema-list/tema-list.component';
 import { TemaAddComponent } from './components/tema-add/tema-add.component';
 import { AlumnoListComponent } from './components/alumno-list/alumno-list.component';
 import { AlumnoAddComponent } from './components/alumno-add/alumno-add.component';
+import { MaterialListComponent } from './components/material-list/material-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cursos', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'temas', component: TemaListComponent },
   { path: 'addTema', component: TemaAddComponent },
   { path: 'alumnos', component: AlumnoListComponent },
-  { path: 'addAlumno', component: AlumnoAddComponent }
+  { path: 'addAlumno', component: AlumnoAddComponent },
+  { path: 'materiales', component: MaterialListComponent }
   
 ];
 

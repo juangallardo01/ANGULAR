@@ -12,6 +12,7 @@ import { TemaListComponent } from './components/tema-list/tema-list.component';
 import { TemaAddComponent } from './components/tema-add/tema-add.component';
 import { AlumnoListComponent } from './components/alumno-list/alumno-list.component';
 import { AlumnoAddComponent } from './components/alumno-add/alumno-add.component';
+import { MaterialListComponent } from './components/material-list/material-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AlumnoAddComponent } from './components/alumno-add/alumno-add.component
     TemaListComponent,
     TemaAddComponent,
     AlumnoListComponent,
-    AlumnoAddComponent
+    AlumnoAddComponent,
+    MaterialListComponent
   ],
   imports: [
     BrowserModule,
