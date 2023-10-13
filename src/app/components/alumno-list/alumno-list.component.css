@@ -1,0 +1,39 @@
+/* lista de alumnos */
+.list-group-item {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.list-group-item.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* título "Listado Alumnos" */
+h4 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+b {
+  font-weight: bold;
+}
+
+/* fecha de nacimiento de los alumnos */
+.list-group-item div {
+  font-size: 0.9em;
+}
+
+/* contenedor de la lista */
+.custom-list {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+}

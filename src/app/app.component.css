@@ -1,0 +1,48 @@
+
+.navbar {
+  background-color: #343a40; /* Color de fondo */
+}
+
+.navbar-brand {
+  font-size: 1.5em; /* Tamaño de fuente del texto "ANGULAR" */
+}
+
+/* elementos de navegacion en la barra */
+.nav-link {
+  color: #fff; /* Color del texto de los elementos de navegación */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  padding: 0.5rem 1rem; /* Espacio alrededor de los elementos de navegación */
+  transition: background-color 0.2s; /* Transición de color de fondo al pasar el mouse */
+
+}
+
+.nav-link:hover {
+  background-color: #495057; /* Color de fondo al pasar el mouse */
+}
+
+/* cuadro del texto "ANGULAR" */
+.brand-container {
+  background-color: rgb(255, 0, 0); /* Color de fondo del cuadro " */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 1px 50px; /* Espacio interior alrededor del texto "ANGULAR" */
+  display: flex; /*centrar el contenido */
+  align-items: center; /* Centra verticalmente  */
+}
+
+/* texto "ANGULAR" */
+.brand-container a.navbar-brand {
+  color: #fff; 
+  text-decoration: none; 
+}
+
+.brand-container a.navbar-brand:hover {
+  text-decoration: none; /* Evita que aparezca el subrayado al pasar el mouse */
+}
+
+.separator {
+  width: 3px; /* Ancho del divisor */
+  background-color: #ccc; /* Color del divisor */
+  height: 40px; 
+  vertical-align: middle; /* Centra verticalmente*/
+  margin: 0 10px; /* Espacio entre el divisor y otros elementos */
+}

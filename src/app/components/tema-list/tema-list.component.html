@@ -1,0 +1,23 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4><b>Listado Temas</b></h4>
+    <ul class="list-group custom-list">
+      <li
+        class="list-group-item"
+        *ngFor="let tema of temas; let i = index"
+        [class.active]="i == currentIndex"
+      >
+        <b>{{ tema.nombre }}</b>
+        <div>Duración: {{ tema.duracion }}</div>      
+      </li>
+      
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <app-curso-details
+      [viewMode]="true"
+      [currentElement]="currentElement"
+    ></app-curso-details>
+  </div>
+</div>
+

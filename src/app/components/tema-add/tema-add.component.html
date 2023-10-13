@@ -1,0 +1,42 @@
+<div>
+  <div class="submit-form">
+    <form #temaForm="ngForm">
+		
+      <h4><b>Añadir nuevo tema</b></h4>
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          required
+          [(ngModel)]="tema.nombre"
+          name="nombre"
+        />
+        <div class="error-message" *ngIf="temaForm.submitted && !tema.nombre">
+          El campo Nombre es obligatorio.
+        </div>
+      </div>
+      
+       <div class="form-group">
+        <label for="nombre"><b>Duracion</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="duracion"
+          required
+          [(ngModel)]="tema.duracion"
+          name="duracion"
+        />
+        <div class="error-message" *ngIf="temaForm.submitted && !tema.duracion">
+          El campo Duracion es obligatorio.
+        </div>
+      </div>
+      
+      <button type="button" (click)="saveTema()" class="btn btn-success">Guardar</button>
+    </form>
+    <div *ngIf="submitted">
+      <h4>El tema ha sido guardado con éxito!</h4>
+    </div>
+  </div>
+</div>

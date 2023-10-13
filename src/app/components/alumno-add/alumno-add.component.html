@@ -1,0 +1,42 @@
+<div>
+  <div class="submit-form">
+    <form #temaForm="ngForm">
+		
+      <h4><b>Añadir nuevo alumno</b></h4>
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          required
+          [(ngModel)]="alumno.nombre"
+          name="nombre"
+        />
+        <div class="error-message" *ngIf="temaForm.submitted && !alumno.nombre">
+          El campo Nombre es obligatorio.
+        </div>
+      </div>
+      
+       <div class="form-group">
+        <label for="nombre"><b>Fecha de nacimiento</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha"
+          required
+          [(ngModel)]="alumno.fechaNacimiento"
+          name="fecha"
+        />
+        <div class="error-message" *ngIf="temaForm.submitted && !alumno.fechaNacimiento">
+          El campo Fecha de nacimiento es obligatorio.
+        </div>
+      </div>
+      
+      <button type="button" (click)="saveAlumno()" class="btn btn-success">Guardar</button>
+    </form>
+    <div *ngIf="submitted">
+      <h4>El alumno ha sido guardado con éxito!</h4>
+    </div>
+  </div>
+</div>

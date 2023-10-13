@@ -18,22 +18,27 @@ export class CursoDetailsComponent implements OnInit {
     content: ''
   };
   
+  temaEdit: string = ''; // Variable para editar el tema
   message = '';
+  
   constructor(
     private cursoService: CursoService,
     private route: ActivatedRoute,
     private router: Router) { }
+  
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
       this.getElement(this.route.snapshot.params["id"]);
     }
   }
+  
   getElement(id: string): void {
     this.cursoService.get(id)
       .subscribe({
         next: (data) => {
           this.currentElement = data;
+          this.temaEdit = data.tema && data.tema.nombre ? data.tema.nombre : ''; // Inicializa temaEdit
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -42,6 +47,8 @@ export class CursoDetailsComponent implements OnInit {
 
   updateElement(): void {
     this.message = '';
+    if (this.currentElement.tema && typeof this.currentElement.tema === 'object' && 'nombre' in this.currentElement.tema){
+    this.currentElement.tema.nombre = this.temaEdit; // Actualiza el valor del tema
     this.cursoService.update(this.currentElement.id, this.currentElement)
       .subscribe({
         next: (res) => {
@@ -51,6 +58,7 @@ export class CursoDetailsComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+    }
   }
   deleteElement(): void {
     this.cursoService.delete(this.currentElement.id)
