@@ -11,9 +11,10 @@
           required
           [(ngModel)]="curso.nombre"
           name="nombre"
+          #nombreInput="ngModel"
         />
-        <div class="error-message" *ngIf="cursoForm.submitted && !curso.nombre">
-          El campo Nombre es obligatorio.
+        <div *ngIf="nombreInput.invalid && nombreInput.touched" class="text-danger">
+          El nombre es obligatorio.
         </div>
       </div>
       <div class="form-group">
@@ -22,6 +23,9 @@
           <option value="0">Selecciona un tema</option>
           <option *ngFor="let tema of temas" [value]="tema.id">{{ tema.nombre }}</option>
         </select>
+        <div *ngIf="cursoForm.controls['tema'].invalid && cursoForm.controls['tema'].touched" class="text-danger">
+          Seleccione un tema.
+        </div>
       </div>
 
       <div class="form-group" *ngIf="selectedTemaId">
@@ -39,14 +43,16 @@
       <div class="form-group">
         <label for="fechaInicio"><b>Fecha inicio</b></label>
         <input
+          type="date"
           class="form-control"
           id="fechaInicio"
           required
           [(ngModel)]="curso.fechaInicio"
           name="fechaInicio"
+          #fechaInput="ngModel"
         />
-        <div class="error-message" *ngIf="cursoForm.submitted && !curso.fechaInicio">
-          El campo Fecha inicio es obligatorio.
+        <div *ngIf="fechaInput.invalid && fechaInput.touched" class="text-danger">
+          La fecha es obligatorio.
         </div>
       </div>
       <div class="form-group">
@@ -57,8 +63,8 @@
           <option value="2">Ramon Perez</option>
           <option value="3">Pepe Morales</option>
         </select>
-        <div class="error-message" *ngIf="cursoForm.submitted && curso.idDocente === 0">
-          Por favor, seleccione un docente.
+        <div *ngIf="cursoForm.controls['docente'].invalid && cursoForm.controls['docente'].touched" class="text-danger">
+          Seleccione un docente.
         </div>
       </div>
       <button type="button" (click)="saveCurso()" class="btn btn-success">Guardar</button>

@@ -12,16 +12,17 @@
           required
           [(ngModel)]="alumno.nombre"
           name="nombre"
+          #nombreInput="ngModel"
         />
-        <div class="error-message" *ngIf="temaForm.submitted && !alumno.nombre">
-          El campo Nombre es obligatorio.
+        <div *ngIf="nombreInput.invalid && nombreInput.touched" class="text-danger">
+          El nombre es obligatorio.
         </div>
       </div>
       
        <div class="form-group">
         <label for="nombre"><b>Fecha de nacimiento</b></label>
         <input
-          type="text"
+          type="date"
           class="form-control"
           id="fecha"
           required

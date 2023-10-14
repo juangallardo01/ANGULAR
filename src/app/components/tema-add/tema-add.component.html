@@ -12,9 +12,10 @@
           required
           [(ngModel)]="tema.nombre"
           name="nombre"
+          #nombreInput="ngModel"
         />
-        <div class="error-message" *ngIf="temaForm.submitted && !tema.nombre">
-          El campo Nombre es obligatorio.
+        <div *ngIf="nombreInput.invalid && nombreInput.touched" class="text-danger">
+          El nombre es obligatorio.
         </div>
       </div>
       
@@ -27,9 +28,10 @@
           required
           [(ngModel)]="tema.duracion"
           name="duracion"
+          #duracionInput="ngModel"
         />
-        <div class="error-message" *ngIf="temaForm.submitted && !tema.duracion">
-          El campo Duracion es obligatorio.
+        <div *ngIf="duracionInput.invalid && duracionInput.touched" class="text-danger">
+          El campo duracion es obligatorio.
         </div>
       </div>
       
