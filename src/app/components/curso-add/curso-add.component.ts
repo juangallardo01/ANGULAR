@@ -46,6 +46,7 @@ export class CursoAddComponent implements OnInit {
     this.retrieveMateriales();
     this.retrieveTema();
     this.retrieveMaterialesPorCurso();
+    this.checkFormValidity();
 
     this.cursoService.getTemasDeCurso().subscribe(
       (temas) => {
@@ -74,8 +75,7 @@ export class CursoAddComponent implements OnInit {
         console.error(e);
       }
     });
-  }
-
+}
   newCurso(): void {
     this.submitted = false;
     this.curso = <Curso>{
@@ -115,16 +115,18 @@ export class CursoAddComponent implements OnInit {
         this.materialesTema = data;
         console.log(this.materialesTema);
         console.log("Materiales recuperados:", this.materialesTema);
+        this.isFormValid = !!this.curso.nombre && !!this.selectedTemaId && !!this.curso.fechaInicio && !!this.curso.idDocente;
       },
       error: (e: any) => console.error("Materiales no recuperados")
     });
   } else {
     console.error("selectedTemaId no es válido. No se realizará la llamada a retrieveMaterialesPorCurso.");
+    this.isFormValid = false; // Asegura que el formulario sea inválido si no se selecciona un tema
   }
 }
 
  checkFormValidity(): void {
-    this.isFormValid = !!this.curso.nombre && !!this.selectedTemaId && !!this.curso.fechaInicio && !!this.curso.idDocente;
+    this.isFormValid = !!this.curso.nombre && this.selectedTemaId > 0 && !!this.curso.fechaInicio && !!this.curso.idDocente;
 }
 
 
