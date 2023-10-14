@@ -10,11 +10,11 @@
 .custom-list li {
   cursor: pointer;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(0, 0, 0);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   transition: background-color 0.5s;
+  background-color: rgb(211, 211, 211);
 }
 
 .custom-list li.active {

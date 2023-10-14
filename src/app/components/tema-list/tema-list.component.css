@@ -2,11 +2,12 @@
 .list-group-item {
   cursor: pointer;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.2s;
+  background-color: rgb(211, 211, 211);
 }
 
 .list-group-item.active {

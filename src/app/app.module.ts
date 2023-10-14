@@ -24,7 +24,7 @@ import { MaterialListComponent } from './components/material-list/material-list.
     TemaAddComponent,
     AlumnoListComponent,
     AlumnoAddComponent,
-    MaterialListComponent
+    MaterialListComponent,
   ],
   imports: [
     BrowserModule,
