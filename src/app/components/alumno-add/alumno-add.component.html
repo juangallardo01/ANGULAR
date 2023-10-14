@@ -29,12 +29,12 @@
           [(ngModel)]="alumno.fechaNacimiento"
           name="fecha"
         />
-        <div class="error-message" *ngIf="temaForm.submitted && !alumno.fechaNacimiento">
-          El campo Fecha de nacimiento es obligatorio.
-        </div>
+        <div *ngIf="!alumno.fechaNacimiento" class="text-danger">
+    		La fecha de nacimiento es obligatoria.
+  	   </div>
       </div>
       
-      <button type="button" (click)="saveAlumno()" class="btn btn-success">Guardar</button>
+      <button type="button" (click)="saveAlumno()" class="btn btn-success" [disabled]="!alumno.nombre || !alumno.fechaNacimiento">Guardar</button>
     </form>
     <div *ngIf="submitted">
       <h4>El alumno ha sido guardado con éxito!</h4>

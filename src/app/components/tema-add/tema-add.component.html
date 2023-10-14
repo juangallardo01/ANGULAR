@@ -35,7 +35,7 @@
         </div>
       </div>
       
-      <button type="button" (click)="saveTema()" class="btn btn-success">Guardar</button>
+      <button type="button" (click)="saveTema()" class="btn btn-success" [disabled]="!tema.nombre || !tema.duracion">Guardar</button>
     </form>
     <div *ngIf="submitted">
       <h4>El tema ha sido guardado con éxito!</h4>

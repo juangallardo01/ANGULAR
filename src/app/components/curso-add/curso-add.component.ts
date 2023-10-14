@@ -29,6 +29,7 @@ export class CursoAddComponent implements OnInit {
   temasCursos: any[] = [];
   materiales?: Material[];
   temas?: Tema[];
+  
 
   constructor(
     private cursoService: CursoService,
@@ -39,6 +40,7 @@ export class CursoAddComponent implements OnInit {
   materialesTema: Material[] = [];
   materialesFiltrados?: Material[] = [];
   selectedTemaId: number = 0;
+  isFormValid: boolean = false; // Nueva propiedad para verificar la validez del formulario
 
   ngOnInit(): void {
     this.retrieveMateriales();
@@ -119,6 +121,10 @@ export class CursoAddComponent implements OnInit {
   } else {
     console.error("selectedTemaId no es válido. No se realizará la llamada a retrieveMaterialesPorCurso.");
   }
+}
+
+ checkFormValidity(): void {
+    this.isFormValid = !!this.curso.nombre && !!this.selectedTemaId && !!this.curso.fechaInicio && !!this.curso.idDocente;
 }
 
 
