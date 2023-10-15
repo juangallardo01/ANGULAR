@@ -19,10 +19,13 @@
       </div>
       <div class="form-group">
         <label for="tema"><b>Tema</b></label>
-        <select class="form-control" [(ngModel)]="selectedTemaId" (ngModelChange)="retrieveMaterialesPorCurso()">
-          <option disabled selected value=""><b>Selecciona un tema</b></option>
+        <select class="form-control" [(ngModel)]="selectedTemaId" name="tema" (ngModelChange)="retrieveMaterialesPorCurso()">
+          <option value ="0" disabled ><b>Selecciona un tema</b></option>
           <option *ngFor="let tema of temas" [value]="tema.id">{{ tema.nombre }}</option>
         </select>
+        <div *ngIf="cursoForm.controls['tema'].invalid && cursoForm.controls['tema'].touched" class="text-danger">
+          Seleccione un tema.
+        </div>
         
       </div>
 
@@ -58,7 +61,7 @@
       <div class="form-group">
         <label for="docente"><b>Docente</b></label>
         <select class="form-control" id="docente" required [(ngModel)]="curso.idDocente" name="docente">
-          <option disabled selected value="">Seleccione un docente</option>
+          <option value = "0" disabled >Seleccione un docente</option>
           <option value="1">Matias Gonzalez</option>
           <option value="2">Ramon Perez</option>
           <option value="3">Pepe Morales</option>
@@ -67,7 +70,7 @@
           Seleccione un docente.
         </div>
       </div>
-      <button type="button" (click)="saveCurso()" class="btn btn-success" >Guardar</button>
+      <button type="button" (click)="saveCurso()" class="btn btn-success" [disabled]="cursoForm.invalid || selectedTemaId === 0 || curso.idDocente === 0" >Guardar</button>
     </form>
     <div *ngIf="submitted">
       <h4>El curso ha sido guardado con éxito!</h4>
